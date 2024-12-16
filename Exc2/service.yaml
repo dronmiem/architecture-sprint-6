@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: task-svc
+  labels:
+    app: task-app
+spec:
+  internalTrafficPolicy: Cluster
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    app: task-app
+  type: ClusterIP
